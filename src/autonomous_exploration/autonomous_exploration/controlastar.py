@@ -334,7 +334,7 @@ class navigationControl(Node):
         self.subscription = self.create_subscription(Odometry,'odom',self.odom_callback,10)
         self.subscription = self.create_subscription(LaserScan,'scan',self.scan_callback,10)
         self.publisher = self.create_publisher(Twist, 'cmd_vel', 10)
-        print("[BILGI] KESİF MODU AKTİF")
+        print("[BILGI] KESİF MODU AKTİFfuckkkkk")
         self.kesif = True
         threading.Thread(target=self.exp).start() #Kesif fonksiyonunu thread olarak calistirir.
         
@@ -359,7 +359,7 @@ class navigationControl(Node):
                 self.r = int((self.path[-1][1] - self.originY)/self.resolution) 
                 self.kesif = False
                 self.i = 0
-                print("[BILGI] YENI HEDEF BELİRLENDI")
+                print("[BILGI] YENI HEDEF BELİRLENDI//////////////")
                 t = pathLength(self.path)/speed
                 t = t - 0.2 #x = v * t formülüne göre hesaplanan sureden 0.2 saniye cikarilir. t sure sonra kesif fonksiyonu calistirilir.
                 self.t = threading.Timer(t,self.target_callback) #Hedefe az bir sure kala kesif fonksiyonunu calistirir.
@@ -374,7 +374,7 @@ class navigationControl(Node):
                     v = 0.0
                     w = 0.0
                     self.kesif = True
-                    print("[BILGI] HEDEFE ULASILDI")
+                    print("[BILGI] HEDEFE ULASILDI //////////")
                     self.t.join() #Thread bitene kadar bekle.
                 twist.linear.x = v
                 twist.angular.z = w
